@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+   app:
+     container_name: terradnode1
+     build: .
+     restart: on-failure
+     environment:
+       - chainid=columbus-5
+     volumes:
+       - ./data/:/root/.terra/
+     ulimits:
+        nproc: 65535
+        nofile:
+          soft: 65535
+          hard: 65535
